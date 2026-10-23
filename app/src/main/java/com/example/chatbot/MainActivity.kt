@@ -9,8 +9,14 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.ViewModel
+import com.example.chatbot.ui.screen.TestScreen
+import com.example.chatbot.ui.screen.TestViewModel
 import com.example.chatbot.ui.theme.ChatBotTheme
 
 class MainActivity : ComponentActivity() {
@@ -19,12 +25,13 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             ChatBotTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
+                val viewModel: TestViewModel = hiltViewModel()
+                val state by viewModel.state.collectAsState()
+
+                TestScreen(
+                    state = state,
+                    onIntent = viewModel::onIntent
+                )
             }
         }
     }

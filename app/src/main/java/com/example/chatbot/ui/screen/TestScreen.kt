@@ -1,6 +1,7 @@
 package com.example.chatbot.ui.screen
 
-import android.widget.Space
+import androidx.compose.material3.MaterialTheme.colorScheme
+import androidx.compose.material3.MaterialTheme.typography
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
@@ -10,68 +11,66 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
+import com.example.chatbot.R
+import com.example.chatbot.ui.theme.Dimens
 import com.example.chatbot.ui.theme.PrimaryGradient
 
 @Composable
-fun TestScreen() {
-
-    var showText by remember { mutableStateOf(false) }
+fun TestScreen(
+    state: TestState,
+    onIntent: (TestIntent) -> Unit
+) {
 
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(16.dp),
+            .padding(Dimens.dp16),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        Text (
-            text = "Test",
-            style = MaterialTheme.typography.headlineLarge,
-            color = MaterialTheme.colorScheme.onBackground
+        Text(
+            text = stringResource(R.string.app_name),
+            style = typography.headlineLarge,
+            color = colorScheme.onBackground
         )
 
-        Spacer(Modifier.padding(24.dp))
+        Spacer(Modifier.padding(Dimens.dp24))
 
         Box(
             modifier = Modifier
-                .background(brush = PrimaryGradient, shape = RoundedCornerShape(12.dp))
-                .clickable {showText = !showText}
-                .padding(horizontal = 32.dp, vertical = 14.dp)
+                .background(brush = PrimaryGradient, shape = RoundedCornerShape(Dimens.dp12))
+                .clickable { onIntent(TestIntent.OnButtonClicked) }
+                .padding(horizontal = Dimens.dp32, vertical = Dimens.dp16)
         ) {
-            Text(text = if (showText) "Hide" else "Show",
-            color = MaterialTheme.colorScheme.onPrimary)
+            Text(
+                text = if (state.isTextVisible) stringResource(R.string.hide) else stringResource(R.string.show),
+                color = colorScheme.onPrimary,
+            )
         }
-        if(showText) {
+        if (state.isTextVisible) {
             Text(
-                text = "Headline Large",
-                style = MaterialTheme.typography.headlineLarge,
-                color = MaterialTheme.colorScheme.onBackground,
-                modifier = Modifier.padding(top = 24.dp)
+                text = stringResource(R.string.headline_large),
+                style = typography.headlineLarge,
+                color = colorScheme.onBackground,
+                modifier = Modifier.padding(top = Dimens.dp24)
             )
             Text(
-                text = "Headline Small",
-                style = MaterialTheme.typography.headlineSmall,
-                color = MaterialTheme.colorScheme.onBackground,
-                modifier = Modifier.padding(top = 24.dp)
+                text = stringResource(R.string.headline_small),
+                style = typography.headlineSmall,
+                color = colorScheme.onBackground,
+                modifier = Modifier.padding(top = Dimens.dp24)
             )
             Text(
-                text = "Headline Medium",
-                style = MaterialTheme.typography.headlineMedium,
-                color = MaterialTheme.colorScheme.onBackground,
-                modifier = Modifier.padding(top = 24.dp)
+                text = stringResource(R.string.headline_medium),
+                style = typography.headlineMedium,
+                color = colorScheme.onBackground,
+                modifier = Modifier.padding(top = Dimens.dp24)
             )
         }
     }
@@ -79,7 +78,10 @@ fun TestScreen() {
 
 @Preview
 @Composable
-fun TestScreenPreview() {
-    TestScreen()
+private fun TestScreenPreview() {
+    TestScreen(
+        state = TestState(),
+        onIntent = {}
+    )
 }
 
