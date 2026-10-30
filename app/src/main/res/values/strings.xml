@@ -6,4 +6,8 @@
     <string name="headline_large">Headline Large</string>
     <string name="headline_medium">Headline Medium</string>
     <string name="headline_small">Headline Small</string>
+    <string name="open_chats">Open chats</string>
+    <string name="chats_title">Chats</string>
+    <string name="chats_empty">No chats yet</string>
+    <string name="back">Back</string>
 </resources>
