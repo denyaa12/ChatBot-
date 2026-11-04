@@ -7,6 +7,8 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.innowise.chatbot.ui.screen.chat.ChatRoute
+import com.innowise.chatbot.ui.screen.onboarding.OnboardingRoute
+import com.innowise.chatbot.ui.screen.splash.SplashRoute
 import com.innowise.chatbot.ui.screen.test.TestRoute
 
 @Composable
@@ -17,9 +19,31 @@ fun AppNavGraph(
 ) {
     NavHost(
         navController = navController,
-        startDestination = AppDestination.Test,
+        startDestination = AppDestination.Splash,
         modifier = modifier,
     ) {
+        composable<AppDestination.Splash> {
+            SplashRoute(
+                viewModelFactory = viewModelFactory,
+                onNavigateToOnboarding = {
+                    navController.navigate(AppDestination.Onboarding) {
+                        popUpTo<AppDestination.Splash> { inclusive = true }
+                    }
+                },
+            )
+        }
+
+        composable<AppDestination.Onboarding> {
+            OnboardingRoute(
+                viewModelFactory = viewModelFactory,
+                onNavigateToChats = {
+                    navController.navigate(AppDestination.Chats) {
+                        launchSingleTop = true
+                    }
+                },
+            )
+        }
+
         composable<AppDestination.Test> {
             TestRoute(
                 viewModelFactory = viewModelFactory,
