@@ -66,8 +66,8 @@ val Typography = Typography(
     ),
     labelLarge = TextStyle(
         fontFamily = Onest,
-        fontWeight = FontWeight.Medium,
-        fontSize = 14.sp,
-        lineHeight = 20.sp,
+        fontWeight = FontWeight.SemiBold,
+        fontSize = 16.sp,
+        lineHeight = 24.sp,
     ),
 )
