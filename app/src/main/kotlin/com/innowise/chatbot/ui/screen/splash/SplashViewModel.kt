@@ -15,9 +15,16 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
+private const val PROGRESS_STEPS = 10
+private const val STEP_DURATION_MILLIS = 200L
+
 class SplashViewModel @Inject constructor() : ViewModel() {
 
-    private val _state = MutableStateFlow(SplashState())
+    private val _state = MutableStateFlow(
+        SplashState(
+            stepDurationMillis = STEP_DURATION_MILLIS.toInt(),
+        ),
+    )
     val state: StateFlow<SplashState> = _state.asStateFlow()
 
     private val _effect = Channel<SplashEffect>(Channel.BUFFERED)
@@ -35,10 +42,5 @@ class SplashViewModel @Inject constructor() : ViewModel() {
             }
             _effect.send(SplashEffect.NavigateToOnboarding)
         }
-    }
-
-    companion object {
-        const val PROGRESS_STEPS = 10
-        const val STEP_DURATION_MILLIS = 200L
     }
 }

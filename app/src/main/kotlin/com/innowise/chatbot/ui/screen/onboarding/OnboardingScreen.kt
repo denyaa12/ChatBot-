@@ -77,7 +77,10 @@ fun OnboardingScreen(
     val dimens = AppTheme.dimens
 
     val headline = stringResource(state.headlineRes)
-    val highlights = state.headlineHighlightsRes.map { stringResource(it) }
+    val highlights = listOf(
+        stringResource(state.headlineHighlightFirstRes),
+        stringResource(state.headlineHighlightSecondRes),
+    )
     val textBrush = remember { angledLinearGradient(TextGradientAngle) }
     val annotatedHeadline = remember(headline, highlights) {
         headline.withGradientHighlights(

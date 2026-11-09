@@ -62,7 +62,7 @@ fun SplashScreen(
     val progress by animateFloatAsState(
         targetValue = state.progress,
         animationSpec = tween(
-            durationMillis = SplashViewModel.STEP_DURATION_MILLIS.toInt(),
+            durationMillis = state.stepDurationMillis,
             easing = LinearEasing,
         ),
         label = "splashProgress",
