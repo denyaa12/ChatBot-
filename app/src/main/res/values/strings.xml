@@ -10,4 +10,10 @@
     <string name="chats_title">Chats</string>
     <string name="chats_empty">No chats yet</string>
     <string name="back">Back</string>
+    <string name="logo_content_description">chatbot.io logo</string>
+    <string name="onboarding_headline">This AI Chatbot is the best in the world and has a fun concept</string>
+    <string name="onboarding_headline_highlight_first">AI Chatbot</string>
+    <string name="onboarding_headline_highlight_second">fun concept</string>
+    <string name="onboarding_description">Beyond Conversation Discover a New Level of Intelligence and Engagement</string>
+    <string name="onboarding_get_started">Get Started</string>
 </resources>
