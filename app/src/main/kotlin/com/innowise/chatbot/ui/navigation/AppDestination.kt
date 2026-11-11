@@ -5,6 +5,18 @@ import kotlinx.serialization.Serializable
 sealed interface AppDestination {
 
     @Serializable
+    data object Splash : AppDestination
+
+    @Serializable
+    data object Onboarding : AppDestination
+
+    @Serializable
+    data object Auth : AppDestination
+
+    @Serializable
+    data object SignIn : AppDestination
+
+    @Serializable
     data object Test : AppDestination
 
     @Serializable

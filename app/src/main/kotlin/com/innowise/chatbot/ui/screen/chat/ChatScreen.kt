@@ -26,6 +26,7 @@ import com.innowise.chatbot.ui.screen.chat.state.ChatEffect
 import com.innowise.chatbot.ui.screen.chat.state.ChatIntent
 import com.innowise.chatbot.ui.screen.chat.state.ChatState
 import com.innowise.chatbot.ui.theme.AppTheme
+import com.innowise.chatbot.ui.theme.AppTheme.dimens
 
 @Composable
 fun ChatRoute(
@@ -57,8 +58,6 @@ fun ChatScreen(
     onIntent: (ChatIntent) -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    val dimens = AppTheme.dimens
-
     Column(
         modifier = modifier
             .fillMaxSize()

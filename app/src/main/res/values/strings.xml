@@ -10,4 +10,22 @@
     <string name="chats_title">Chats</string>
     <string name="chats_empty">No chats yet</string>
     <string name="back">Back</string>
+    <string name="logo_content_description">chatbot.io logo</string>
+    <string name="onboarding_headline">This AI Chatbot is the best in the world and has a fun concept</string>
+    <string name="onboarding_headline_highlight_first">AI Chatbot</string>
+    <string name="onboarding_headline_highlight_second">fun concept</string>
+    <string name="onboarding_description">Beyond Conversation Discover a New Level of Intelligence and Engagement</string>
+    <string name="onboarding_get_started">Get Started</string>
+    <string name="auth_title">Welcome to Chatbot.io</string>
+    <string name="auth_subtitle">Always stay connected with Chatbot</string>
+    <string name="auth_sign_in_sign_up">Sign In / Sign Up</string>
+    <string name="auth_continue_with_google">Continue with Google</string>
+    <string name="sign_in_toolbar_title">Sign In</string>
+    <string name="sign_in_headline">What\'s your email?</string>
+    <string name="sign_in_description">You\'ll need to confirm this email later.</string>
+    <string name="sign_in_email_placeholder">Email</string>
+    <string name="sign_in_next">Next</string>
+    <string name="sign_in_terms">I have read and agree to Chatbot.io Term of Service and Privacy Policy</string>
+    <string name="sign_in_terms_highlight_first">Term of Service</string>
+    <string name="sign_in_terms_highlight_second">Privacy Policy</string>
 </resources>

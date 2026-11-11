@@ -2,7 +2,11 @@ package com.innowise.chatbot.di
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.innowise.chatbot.ui.screen.auth.AuthViewModel
 import com.innowise.chatbot.ui.screen.chat.ChatViewModel
+import com.innowise.chatbot.ui.screen.onboarding.OnboardingViewModel
+import com.innowise.chatbot.ui.screen.signin.SignInViewModel
+import com.innowise.chatbot.ui.screen.splash.SplashViewModel
 import com.innowise.chatbot.ui.screen.test.TestViewModel
 import dagger.Binds
 import dagger.Module
@@ -23,4 +27,24 @@ abstract class ViewModelModule {
     @IntoMap
     @ViewModelKey(ChatViewModel::class)
     abstract fun bindChatViewModel(viewModel: ChatViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(SplashViewModel::class)
+    abstract fun bindSplashViewModel(viewModel: SplashViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(OnboardingViewModel::class)
+    abstract fun bindOnboardingViewModel(viewModel: OnboardingViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(AuthViewModel::class)
+    abstract fun bindAuthViewModel(viewModel: AuthViewModel): ViewModel
+
+    @Binds
+    @IntoMap
+    @ViewModelKey(SignInViewModel::class)
+    abstract fun bindSignInViewModel(viewModel: SignInViewModel): ViewModel
 }
