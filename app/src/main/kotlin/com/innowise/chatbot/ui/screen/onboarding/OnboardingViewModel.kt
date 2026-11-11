@@ -25,7 +25,7 @@ class OnboardingViewModel @Inject constructor() : ViewModel() {
     fun onIntent(intent: OnboardingIntent) {
         when (intent) {
             OnboardingIntent.OnGetStartedClicked -> {
-                viewModelScope.launch { _effect.send(OnboardingEffect.NavigateToChats) }
+                viewModelScope.launch { _effect.send(OnboardingEffect.NavigateToAuth) }
             }
         }
     }

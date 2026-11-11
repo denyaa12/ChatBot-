@@ -11,6 +11,12 @@ sealed interface AppDestination {
     data object Onboarding : AppDestination
 
     @Serializable
+    data object Auth : AppDestination
+
+    @Serializable
+    data object SignIn : AppDestination
+
+    @Serializable
     data object Test : AppDestination
 
     @Serializable

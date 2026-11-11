@@ -47,7 +47,7 @@ private val ImageAlignment = BiasAlignment(
 @Composable
 fun OnboardingRoute(
     viewModelFactory: ViewModelProvider.Factory,
-    onNavigateToChats: () -> Unit,
+    onNavigateToAuth: () -> Unit,
     modifier: Modifier = Modifier,
     viewModel: OnboardingViewModel = viewModel(factory = viewModelFactory),
 ) {
@@ -56,7 +56,7 @@ fun OnboardingRoute(
     LaunchedEffect(viewModel) {
         viewModel.effect.collect { effect ->
             when (effect) {
-                OnboardingEffect.NavigateToChats -> onNavigateToChats()
+                OnboardingEffect.NavigateToAuth -> onNavigateToAuth()
             }
         }
     }
